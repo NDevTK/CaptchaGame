@@ -1,3 +1,7 @@
+/*jshint esversion: 8 */
+
+// NDev 2020 https://github.com/NDevTK/CacheAttack
+
 Rows = [];
 username = GetUsername();
 
@@ -48,7 +52,7 @@ function Ticker() {
         Rows[ID].Score.innerText -= 1;
         if (element.Score.innerText < 1) {
             scoreboard.deleteRow(ID);
-            if(Rows[ID].mine) Reload("You Died :(")
+            if(Rows[ID].mine) Reload("You Died :(");
             delete Rows.splice(ID, 1);
         }
     });
@@ -56,11 +60,7 @@ function Ticker() {
 
 function Reload(why) {
     alert(why);
-    location.reload()
-}
-
-function UpdateNick(ID, Nickname) {
-    Rows[ID].Nickname.innerText = Nickname;
+    location.reload();
 }
 
 function UpdateScore(ID) {
@@ -106,7 +106,8 @@ function captcha() {
 
 mine = true;
 server.onmessage = function(msg) {
-    if (json = ParseJSON(msg.data)) {
+    var json = ParseJSON(msg.data);
+    if (json) {
         if (Array.isArray(json)) {
             json.forEach((Player) => {
                 PlayerData(Player.Nickname, Player.Score, Player.Solved);
@@ -114,14 +115,14 @@ server.onmessage = function(msg) {
         } else {
             var index = PlayerData(json.Nickname, json.Score, json.Solved);
             if(mine) {
-            mine = false
+            mine = false;
             Rows[index].mine = true;
             }
-		};
+		}
 	} else if(!isNaN(msg.data)) {
 		UpdateScore(msg.data);
 	}
-}
+};
 
 function ParseJSON(str) { // Attempt to parse JSON
     if(!isNaN(str)) return false;
