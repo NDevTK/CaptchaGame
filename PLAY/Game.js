@@ -2,10 +2,10 @@
 
 // NDev 2020 https://github.com/NDevTK/CaptchaGame
 
-Rows = [];
-username = GetUsername();
+var Rows = [];
+var username = GetUsername();
 
-best = localStorage.getItem("best");
+var best = localStorage.getItem("best");
 if(isNaN(best) || best === null) setBest();
 
 function setBest(value = 0) {
@@ -99,12 +99,12 @@ function GetUsername() {
 }
 
 function captcha() {
-    responce = hcaptcha.getResponse();
+    var responce = hcaptcha.getResponse();
     server.send(responce);
     hcaptcha.reset();
 }
 
-mine = true;
+var mine = true;
 server.onmessage = function(msg) {
     var json = ParseJSON(msg.data);
     if (json) {
