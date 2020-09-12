@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 8080;
 const fetch = require('node-fetch');
 var request = require('request');
 const token = "N/A";
-Rows = [];
+var Rows = [];
 
 const wss = new WebSocket.Server({ port: PORT });
 
