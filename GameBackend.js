@@ -1,4 +1,7 @@
-// NDev 2020
+/*jshint esversion: 8 */
+
+// NDev 2020 https://github.com/NDevTK/CaptchaGame
+
 const WebSocket = require('ws');
 const PORT = process.env.PORT || 8080;
 const fetch = require('node-fetch');
@@ -27,7 +30,7 @@ function broardcast(message) {
 
 function noop() {}
 
-const interval = setInterval(function ping() {
+setInterval(function ping() {
   wss.clients.forEach(function each(ws) {
     if (ws.isAlive === false) return ws.terminate();
     ws.isAlive = false;
@@ -83,18 +86,18 @@ wss.on('connection', function connection(ws) {
 		broardcast(JSON.stringify(player));
 		ID = Rows.push(player) - 1;
 	} else {
-    request.post({url:'https://hcaptcha.com/siteverify', form: {secret:"N/A", response: message}}, function(err,httpResponse,body){
+      request.post({url:'https://hcaptcha.com/siteverify', form: {secret:"N/A", response: message}}, function(err,httpResponse,body){
       if (err) return;
       try {
         reply = JSON.parse(body);
-      } catch (e) {return};
+      } catch (e) {return;}
         if(reply.challenge_ts && new Date(reply.challenge_ts).getTime() > StartTime) return;
         if(reply.success === true) {
           Rows[ID].Score += 10;
           Rows[ID].Solved += 1;
-	  increment(token, Rows[ID].Nickname);
+	        increment(token, Rows[ID].Nickname);
           broardcast(ID);
-        };
+        }
     });
     }
   });
