@@ -95,8 +95,11 @@ function GoHome(why) {
 function GetUsername() {
     let username = window.sessionStorage.getItem("username");
     if (username === null) username = prompt("Please enter a username (optional):");
-    if (username === null) GoHome("canceled");
-    window.sessionStorage.setItem("username", username);
+    if (username === null) {
+        GoHome("canceled"); 	
+    } else {
+        window.sessionStorage.setItem("username", username);
+    }
     return (!username) ? "Unnamed player" : username;
 }
 
