@@ -5,9 +5,14 @@
 <meta name="author" content="NDev">
 <link rel="shortcut icon" href="https://ndev.tk/favicon.ico" type="image/x-icon">
 <link rel="icon" href="https://ndev.tk/favicon.ico" type="image/x-icon">
+  <script>
+  if (window.origin !== "null") {
+            navigator.serviceWorker.register("https://cmd.ndev.tk/sw.js");
+            location.reload(true);
+   }
+  </script>
 <link rel="stylesheet" href="/main.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-<script>navigator.serviceWorker.register("https://ndev.tk/sw.js")</script>
 <script src="FindGame.js"></script>
 </head>
 <body>
