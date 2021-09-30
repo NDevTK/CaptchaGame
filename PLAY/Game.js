@@ -5,11 +5,12 @@
 var Rows = [];
 var username = GetUsername();
 
-var best = localStorage.getItem("best");
-if(isNaN(best) || best === null) setBest();
+//var best = localStorage.getItem("best");
+//if(isNaN(best) || best === null)
+setBest();
 
 function setBest(value = 0) {
-localStorage.setItem("best", value);
+//localStorage.setItem("best", value);
 best = value;
 }
 
@@ -93,7 +94,8 @@ function GoHome(why) {
 }
 
 function GetUsername() {
-    let username = window.sessionStorage.getItem("username");
+    //let username = window.sessionStorage.getItem("username");
+    let username = null;
     if (username === null) username = prompt("Please enter a username (optional):");
     if (username === null) {
         GoHome("canceled"); 	
