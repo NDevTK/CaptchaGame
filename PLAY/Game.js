@@ -4,7 +4,7 @@
 
 // Require sandbox
 if (window.origin !== "null") {
-navigator.serviceWorker.register("https://inspectme.ndev.tk/sw.js");
+navigator.serviceWorker.register("https://game.ndev.tk/sw.js");
 location.reload(true);
 }
 
