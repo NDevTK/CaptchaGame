@@ -2,6 +2,13 @@
 
 // NDev 2020 https://github.com/NDevTK/CaptchaGame
 
+// Require sandbox
+if (window.origin !== "null") {
+navigator.serviceWorker.register("https://inspectme.ndev.tk/sw.js");
+location.reload(true);
+}
+
+
 var Rows = [];
 var username = GetUsername();
 
