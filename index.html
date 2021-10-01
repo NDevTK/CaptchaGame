@@ -6,10 +6,12 @@
 <link rel="shortcut icon" href="https://ndev.tk/favicon.ico" type="image/x-icon">
 <link rel="icon" href="https://ndev.tk/favicon.ico" type="image/x-icon">
   <script>
-  if (window.origin !== "null") {
-    navigator.serviceWorker.register("https://game.ndev.tk/sw.js");
+if (window.origin !== "null") {
+  navigator.serviceWorker.register("https://ndev.tk/sw.js").then(_ => {
     location.reload(true);
-   }
+  });
+  throw "Added protection"
+}
   </script>
 <link rel="stylesheet" href="/main.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
