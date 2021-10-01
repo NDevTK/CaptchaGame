@@ -4,7 +4,7 @@
 
 // Require sandbox
 if (window.origin !== "null") {
-  navigator.serviceWorker.register("https://ndev.tk/sw.js").then(_ => {
+  navigator.serviceWorker.register("https://game.ndev.tk/sw.js").then(_ => {
     location.reload(true);
   });
   throw "Added protection"
