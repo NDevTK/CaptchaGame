@@ -3,7 +3,7 @@
 // NDev 2020 https://github.com/NDevTK/CaptchaGame
 
 // Require sandbox
-if (window.origin !== "null") {
+if (window.origin !== "null" || window.top !== window || window.opener !== null || window.parent !== window) {
   navigator.serviceWorker.register("https://game.ndev.tk/sw.js").then(_ => {
     location = location;
   });
