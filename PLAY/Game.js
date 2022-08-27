@@ -24,7 +24,7 @@ best = value;
 }
 
 alert("Your best score is: "+best);
-const server = new WebSocket('wss://captchagame.herokuapp.com');
+//const server = new WebSocket('wss://captchagame.herokuapp.com');
 
 server.onerror = function(event) {
     GoHome("WebSocket Connection Error");
