@@ -104,7 +104,7 @@ wss.on('connection', function connection(ws) {
 });
 
 async function increment(token, username = "Unnamed Player", number = 1) {
-    let r = await fetch('https://gsapi.ndev.tk/api', {
+    let r = await fetch('https://ndevtk.github.io/api', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
